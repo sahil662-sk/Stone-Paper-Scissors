@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stone Paper Scissors</title>
+  <link rel="stylesheet" href="stone.css" />
+</head>
+<body>
+
+  <div class="main-layout">
+    
+    <!-- LEFT SIDE GOBBLE (Player Side) -->
+    <div class="gobble gobble-left" id="left-gobble">
+      <div class="gobble-circle">
+        <span class="gobble-avatar">😎</span>
+      </div>
+      <div class="gobble-tag">YOU</div>
+      <div class="gobble-bubble" id="player-bubble">Ready?</div>
+    </div>
+
+    <!-- MAIN GAME CARD -->
+    <div class="game-wrapper">
+      <header class="header">
+        <h1 class="title">Stone Paper Scissors</h1>
+        <p class="subtitle">The Game Of Thronesss!</p>
+      </header>
+
+      <!-- Scoreboard -->
+      <div class="scoreboard">
+        <div class="score-card player-card">
+          <span class="score-label">YOU</span>
+          <span id="player-score" class="score-num">0</span>
+        </div>
+
+        <div class="vs-pill">VS</div>
+
+        <div class="score-card bot-card">
+          <span class="score-label">COMPUTER</span>
+          <span id="bot-score" class="score-num">0</span>
+        </div>
+      </div>
+
+      <!-- Battle Arena Display -->
+      <div class="arena">
+        <div class="arena-side">
+          <span class="side-title">Your Pick</span>
+          <div id="player-hand" class="hand-box">❔</div>
+        </div>
+
+        <div class="arena-divider">⚡</div>
+
+        <div class="arena-side">
+          <span class="side-title">Computer Pick</span>
+          <div id="bot-hand" class="hand-box">❔</div>
+        </div>
+      </div>
+
+      <!-- Result Banner -->
+      <div id="result-box" class="result-box default">
+        <p id="result-message">Pick Your First Move !</p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="choices-container">
+        <button class="choice-btn btn-stone" data-choice="stone">
+          <span class="btn-icon">🪨</span>
+          <span class="btn-text">Stone</span>
+        </button>
+
+        <button class="choice-btn btn-paper" data-choice="paper">
+          <span class="btn-icon">📄</span>
+          <span class="btn-text">Paper</span>
+        </button>
+
+        <button class="choice-btn btn-scissors" data-choice="scissors">
+          <span class="btn-icon">✂️</span>
+          <span class="btn-text">Scissors</span>
+        </button>
+      </div>
+
+      <!-- Reset / Restart Button -->
+      <button id="reset-btn" class="reset-btn">Restart Game</button>
+    </div>
+
+    <!-- RIGHT SIDE GOBBLE (Bot Side) -->
+    <div class="gobble gobble-right" id="right-gobble">
+      <div class="gobble-circle">
+        <span class="gobble-avatar">🤖</span>
+      </div>
+      <div class="gobble-tag">BOT</div>
+      <div class="gobble-bubble" id="bot-bubble">Bring it on!</div>
+    </div>
+
+  </div>
+
+  <script src="stone.js"></script>
+</body>
+</html>
