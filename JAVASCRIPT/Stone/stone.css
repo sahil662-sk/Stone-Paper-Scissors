@@ -1,0 +1,341 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+  background: linear-gradient(135deg, #6c2bd9 0%, #3b82f6 100%);
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+/* Master Layout - Aligning Center Card with Left/Right Gobbles */
+.main-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* =========================================
+   GOBBLE / MASCOT WIDGETS
+   ========================================= */
+.gobble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+  animation: gobbleFloat 4s ease-in-out infinite;
+}
+
+.gobble-left {
+  animation-delay: 0s;
+}
+
+.gobble-right {
+  animation-delay: 2s; /* Desynchronized for natural movement */
+}
+
+/* Outer Glowing/Glass Bubble */
+.gobble-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(12px);
+  border: 3px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), inset 0 2px 6px rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gobble-avatar {
+  font-size: 3.5rem;
+  transition: transform 0.2s ease;
+}
+
+/* Hover & Active Zoom Effects */
+.gobble:hover .gobble-circle {
+  transform: scale(1.15) rotate(4deg);
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.gobble.pop-zoom .gobble-circle {
+  transform: scale(1.3) !important;
+}
+
+/* Gobble Label Tag */
+.gobble-tag {
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+/* Floating speech bubble */
+.gobble-bubble {
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  position: relative;
+  max-width: 140px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+/* Continuous breathing & hovering zoom animation */
+@keyframes gobbleFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-14px) scale(1.05);
+  }
+}
+
+/* =========================================
+   MAIN GAME CARD
+   ========================================= */
+.game-wrapper {
+  width: 100%;
+  max-width: 440px;
+  background-color: #f1f3f9;
+  border-radius: 24px;
+  padding: 36px 28px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Header */
+.header .title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.header .subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.score-card {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.player-card {
+  border-bottom: 3px solid #3b82f6;
+}
+
+.bot-card {
+  border-bottom: 3px solid #ec4899;
+}
+
+.score-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.score-num {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.vs-pill {
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #64748b;
+  background-color: #e2e8f0;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+/* Battle Arena Display */
+.arena {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.arena-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.side-title {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hand-box {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.1rem;
+  transition: transform 0.15s ease;
+}
+
+.hand-box.pop {
+  transform: scale(1.15);
+}
+
+.arena-divider {
+  font-size: 1.2rem;
+  color: #94a3b8;
+}
+
+/* Result Message Box */
+.result-box {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+.result-box.default {
+  background-color: #e2e8f0;
+  color: #475569;
+}
+
+.result-box.win {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.result-box.lose {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.result-box.draw {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+/* Choice Buttons */
+.choices-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.choice-btn {
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  cursor: pointer;
+  padding: 18px 10px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #1e293b;
+  font-weight: 700;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.choice-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  border-color: #cbd5e1;
+}
+
+.choice-btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 2rem;
+}
+
+.btn-text {
+  font-size: 0.85rem;
+}
+
+/* Restart Button */
+.reset-btn {
+  background-color: #16a34a;
+  border: none;
+  color: #ffffff;
+  padding: 11px 26px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.3);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.reset-btn:hover {
+  background-color: #15803d;
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 860px) {
+  .gobble {
+    display: none; /* Mobile screen pe space kam ho to hide ho jayega automatically */
+  }
+}
